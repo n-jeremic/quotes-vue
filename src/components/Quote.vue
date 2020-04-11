@@ -9,11 +9,12 @@
 <script>
 export default {
   props: {
-    quote: String
+    quote: String,
+    index: Number
   },
   methods: {
     deleteQuote() {
-      this.$emit("quoteWasDeleted", this.quote);
+      this.$emit("quoteWasDeleted", this.index);
     }
   }
 };

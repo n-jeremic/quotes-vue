@@ -4,7 +4,7 @@
     <div class="form-group">
       <textarea class="form-control" rows="3" v-model="quoteText"></textarea>
     </div>
-    <p>
+    <p class="text-center">
       <button class="btn btn-primary" @click="addQuote">Add Quote</button>
     </p>
   </div>

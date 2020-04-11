@@ -3,7 +3,13 @@
     <app-header :quotesNumber="quotes.length"></app-header>
     <app-quotes-input @quoteWasAdded="updateQuotesArray($event)"></app-quotes-input>
     <div class="row">
-      <app-quote v-for="quote in quotes" :key="quote" :quote="quote" @quoteWasDeleted="deleteQuote"></app-quote>
+      <app-quote
+        v-for="(quote, i) in quotes"
+        :key="quote"
+        :index="i"
+        :quote="quote"
+        @quoteWasDeleted="deleteQuote"
+      ></app-quote>
     </div>
     <app-footer v-if="quotes.length > 0"></app-footer>
   </div>
@@ -38,8 +44,7 @@ export default {
 
       this.quotes.push(quote);
     },
-    deleteQuote(quote) {
-      const index = this.quotes.findIndex(el => el === quote);
+    deleteQuote(index) {
       this.quotes.splice(index, 1);
     }
   }
